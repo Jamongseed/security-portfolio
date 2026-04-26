@@ -637,6 +637,41 @@ button.btn {
   text-decoration: underline;
 }
 
+.ctf-card {
+  padding: 24px;
+}
+
+.ctf-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.ctf-header h3 {
+  margin: 0 0 6px;
+  font-size: 22px;
+}
+
+.ctf-rank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #111827;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.ctf-desc {
+  margin: 0 0 20px;
+  color: #374151;
+}
+
 .timeline {
   display: grid;
   gap: 16px;
@@ -751,5 +786,9 @@ button.btn {
 
   .lightbox {
     padding: 16px;
+  }
+
+  .ctf-header {
+    flex-direction: column;
   }
 }
