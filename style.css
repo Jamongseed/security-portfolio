@@ -241,7 +241,29 @@ button.btn {
 }
 
 .education-card {
-  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.education-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.education-content h3 {
+  margin: 0 0 6px;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.education-body {
+  margin-top: 18px;
+}
+
+.education-body p {
+  margin: 6px 0;
 }
 
 .card-top {
@@ -451,5 +473,23 @@ button.btn {
   .org-logo {
     width: 52px;
     height: 52px;
+  }
+
+  .education-card {
+    gap: 16px;
+  }
+
+  .education-body {
+    margin-top: 16px;
+  }
+
+  .org-logo-wrap {
+    width: 64px;
+    height: 64px;
+  }
+
+  .org-logo {
+    max-width: 48px;
+    max-height: 48px;
   }
 }
