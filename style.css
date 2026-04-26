@@ -218,7 +218,38 @@ button.btn {
 }
 
 .skill-card {
-  min-height: 120px;
+  min-height: 125px;
+}
+
+.skill-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.skill-heading h3 {
+  margin: 0;
+}
+
+.skill-logo-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.skill-logo {
+  max-width: 38px;
+  max-height: 38px;
+  object-fit: contain;
 }
 
 .skill-card h3 {
@@ -236,7 +267,7 @@ button.btn {
   align-items: center;
   padding: 7px 10px;
   border-radius: 999px;
-  background: #f1f5f9;
+  background: #eff6ff;
   color: #1e3a8a;
   font-size: 14px;
   font-weight: 600;
