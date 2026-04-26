@@ -188,51 +188,99 @@
         </div>
     </div>
     </section>
-
+ 
     <section id="projects" class="section">
-      <div class="section-title">
+    <div class="section-title">
         <p>Projects</p>
         <h2>프로젝트</h2>
-      </div>
+    </div>    
+    
+    <article class="project-card">
+    <div class="project-header">
+        <div>
+        <p class="project-label">Team Project 01</p>
+        <h3>Browser Runtime Security System</h3>
+        <p class="project-subtitle">브라우저 런타임 위협 행위 탐지 시스템</p>
 
-      <article class="project-card">
-        <div class="project-header">
-          <div>
-            <p class="project-label">Team Project 01</p>
-            <h3>Browser Runtime Security System</h3>
-            <p class="project-subtitle">브라우저 런타임 위협 행위 탐지 시스템</p>
-          </div>
-          <span class="period">2025.12 - 2026.02</span>
+        <div class="project-tags">
+            <span>Chrome Extension</span>
+            <span>JavaScript</span>
+            <span>Threat Detection</span>
+            <span>PoC</span>
+            <span>Ruleset</span>
+        </div>
+        </div>
+        <span class="period">2025.12 - 2026.02</span>
+    </div>
+
+    <p class="project-desc">
+        Chrome Extension 기반으로 DOM, 링크, 폼, 네트워크 요청 등 브라우저 내부에서
+        실행 직전에 변조되는 위협 행위를 탐지하고 근거를 수집하는 보안 시스템입니다.
+    </p>
+
+    <div class="project-gallery">
+    <button class="project-image" type="button" onclick="openLightbox('assets/projects/browser-detection.png', '확장프로그램 탐지 팝업 및 PoC Hub')">
+        <img src="assets/projects/browser-detection.png" alt="Browser Runtime Security System 탐지 화면" />
+        <span>확장프로그램 탐지 팝업 및 PoC Hub · 클릭해서 크게 보기</span>
+    </button>
+
+    <button class="project-image" type="button" onclick="openLightbox('assets/projects/browser-dashboard.png', '이벤트 타임라인 및 분석 대시보드')">
+        <img src="assets/projects/browser-dashboard.png" alt="Browser Runtime Security System 대시보드 화면" />
+        <span>이벤트 타임라인 및 분석 대시보드 · 클릭해서 크게 보기</span>
+    </button>
+    </div>
+
+    <div class="metric-grid">
+        <div class="metric-card">
+        <strong>4개</strong>
+        <span>PoC 구현</span>
+        </div>
+        <div class="metric-card">
+        <strong>24종</strong>
+        <span>탐지 이벤트</span>
+        </div>
+        <div class="metric-card">
+        <strong>52개</strong>
+        <span>기본 탐지 룰</span>
+        </div>
+        <div class="metric-card">
+        <strong>44개</strong>
+        <span>스코어링 룰</span>
+        </div>
+    </div>
+
+    <div class="project-detail">
+        <div>
+        <h4>역할</h4>
+        <p>팀 리더 / 공격 분석 / 탐지 룰 설계 / PoC 구현</p>
         </div>
 
-        <p class="project-desc">
-          Chrome Extension 기반으로 DOM, 링크, 폼, 네트워크 요청 등 브라우저 내부에서
-          실행 직전에 변조되는 위협 행위를 탐지하고 근거를 수집하는 보안 시스템입니다.
-        </p>
-
-        <div class="project-detail">
-          <div>
-            <h4>역할</h4>
-            <p>팀 리더 / 공격 분석 / 탐지 룰 설계 / PoC 구현</p>
-          </div>
-          <div>
-            <h4>핵심 기여</h4>
-            <ul>
-              <li>DOM·네트워크·프로토타입 변조 관련 공격 분석 및 탐지 시나리오 설계</li>
-              <li>PoC 10개 중 4개 구현 및 악성 PoC 테스트 허브 구축</li>
-              <li>탐지 이벤트 24종, 기본 탐지 룰 52개, 스코어링 룰 44개 설계 참여</li>
-            </ul>
-          </div>
-          <div>
-            <h4>기술</h4>
-            <p>Chrome Extension, JavaScript, AWS, DynamoDB, S3, API Gateway</p>
-          </div>
+        <div>
+        <h4>개인 기여</h4>
+        <ul>
+            <li>DOM·네트워크·프로토타입 변조 관련 공격 분석 및 탐지 시나리오 설계</li>
+            <li>PoC 10개 중 4개 구현 및 악성 PoC 테스트 허브 구축</li>
+            <li>탐지 룰 설계 및 PoC 기반 탐지 검증 수행</li>
+        </ul>
         </div>
 
-        <div class="project-links">
-          <a href="https://github.com/Jamongseed/browser-runtime-security" target="_blank">GitHub</a>
+        <div>
+        <h4>프로젝트 기술</h4>
+        <div class="project-tech-badges">
+            <span>Chrome Extension</span>
+            <span>JavaScript</span>
+            <span>AWS</span>
+            <span>DynamoDB</span>
+            <span>S3</span>
+            <span>API Gateway</span>
         </div>
-      </article>
+        </div>
+    </div>
+
+    <div class="project-links">
+        <a class="project-button" href="https://github.com/Jamongseed/browser-runtime-security" target="_blank">GitHub 보기</a>
+    </div>
+    </article>
 
       <article class="project-card">
         <div class="project-header">
@@ -398,6 +446,15 @@
     </section>
   </main>
 
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" type="button" onclick="event.stopPropagation(); closeLightbox()">×</button>
+
+    <figure class="lightbox-content" onclick="event.stopPropagation()">
+        <img id="lightbox-img" src="" alt="" />
+        <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+    </div>
+
   <footer class="footer">
     <p>© 2026 Kim Taejung. Security Engineer Portfolio.</p>
   </footer>
@@ -411,6 +468,32 @@
         window.location.href = "mailto:" + email;
         });
     }
+    function openLightbox(src, caption) {
+        const lightbox = document.getElementById("lightbox");
+        const img = document.getElementById("lightbox-img");
+        const captionEl = document.getElementById("lightbox-caption");
+
+        img.src = src;
+        img.alt = caption;
+        captionEl.textContent = caption;
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+        const lightbox = document.getElementById("lightbox");
+        const img = document.getElementById("lightbox-img");
+
+        lightbox.classList.remove("active");
+        img.src = "";
+        document.body.style.overflow = "";
+    }
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+        closeLightbox();
+        }
+    });
     </script>
 </body>
 </html>
