@@ -194,7 +194,7 @@
         <p>Projects</p>
         <h2>프로젝트</h2>
     </div>    
-    
+
     <article class="project-card">
     <div class="project-header">
         <div>
@@ -215,18 +215,18 @@
 
     <p class="project-desc">
         Chrome Extension 기반으로 DOM, 링크, 폼, 네트워크 요청 등 브라우저 내부에서
-        실행 직전에 변조되는 위협 행위를 탐지하고 근거를 수집하는 보안 시스템입니다.
+        변조되는 위협 행위를 탐지하고 근거를 수집하는 보안 시스템입니다.
     </p>
 
     <div class="project-gallery">
     <button class="project-image" type="button" onclick="openLightbox('assets/projects/browser-detection.png', '확장프로그램 탐지 팝업 및 PoC Hub')">
         <img src="assets/projects/browser-detection.png" alt="Browser Runtime Security System 탐지 화면" />
-        <span>확장프로그램 탐지 팝업 및 PoC Hub · 클릭해서 크게 보기</span>
+        <span>확장프로그램 탐지 팝업 및 PoC Hub · 클릭해서 확대</span>
     </button>
 
     <button class="project-image" type="button" onclick="openLightbox('assets/projects/browser-dashboard.png', '이벤트 타임라인 및 분석 대시보드')">
         <img src="assets/projects/browser-dashboard.png" alt="Browser Runtime Security System 대시보드 화면" />
-        <span>이벤트 타임라인 및 분석 대시보드 · 클릭해서 크게 보기</span>
+        <span>이벤트 타임라인 및 분석 대시보드 · 클릭해서 확대</span>
     </button>
     </div>
 
@@ -282,83 +282,190 @@
     </div>
     </article>
 
-      <article class="project-card">
-        <div class="project-header">
-          <div>
-            <p class="project-label">Team Project 02</p>
-            <h3>Vulnerability Fingerprinting & CVE Mapping System</h3>
-            <p class="project-subtitle">포트 기반 취약점 지문분석 및 CVE 자동 매핑 시스템</p>
-          </div>
-          <span class="period">2025.11 - 2025.12</span>
+    <article class="project-card">
+    <div class="project-header">
+        <div>
+        <p class="project-label">Team Project 02</p>
+        <h3>Vulnerability Fingerprinting & CVE Mapping System</h3>
+        <p class="project-subtitle">포트 기반 취약점 지문분석 및 CVE 자동 매핑 시스템</p>
+
+        <div class="project-tags">
+            <span>Nmap</span>
+            <span>Fingerprinting</span>
+            <span>CVE Mapping</span>
+            <span>Exploit-DB</span>
+            <span>PoC Validation</span>
+        </div>
+        </div>
+        <span class="period">2025.11 - 2025.12</span>
+    </div>
+
+    <p class="project-desc">
+        Nmap 기반 포트·서비스 식별 결과를 바탕으로 서비스 버전 정보를 정규화하고,
+        CVE 후보 매핑과 Exploit 후보 조회까지 이어지는 취약점 분석 자동화 시스템입니다.
+    </p>
+
+    <div class="project-gallery">
+        <button class="project-image" type="button" onclick="openLightbox('assets/projects/vuln-scan.png', 'Nmap 스캔 및 Exploit-DB 조회 화면')">
+        <img src="assets/projects/vuln-scan.png" alt="Vulnerability Fingerprinting 스캔 화면" />
+        <span>Nmap 스캔 및 Exploit-DB 조회 화면 · 클릭해서 확대</span>
+        </button>
+
+        <button class="project-image" type="button" onclick="openLightbox('assets/projects/vuln-dashboard.png', 'CVE 매핑 및 취약점 분석 대시보드')">
+        <img src="assets/projects/vuln-dashboard.png" alt="CVE 매핑 및 취약점 분석 대시보드" />
+        <span>CVE 매핑 및 취약점 분석 대시보드 · 클릭해서 확대</span>
+        </button>
+    </div>
+
+    <div class="metric-grid">
+    <div class="metric-card">
+        <strong>+40%</strong>
+        <span>CVE 매핑 정확도 향상</span>
+    </div>
+    <div class="metric-card">
+        <strong>1분→20초</strong>
+        <span>분석 시간 단축</span>
+    </div>
+    <div class="metric-card">
+        <strong>Exploit</strong>
+        <span>후보 자동 정렬</span>
+    </div>
+    <div class="metric-card">
+        <strong>PoC</strong>
+        <span>검증 수행</span>
+    </div>
+    </div>
+
+    <p class="metric-note">
+    ※ Metasploitable2 테스트 환경 기준 측정 결과
+    </p>
+
+    <div class="project-detail">
+        <div>
+        <h4>역할</h4>
+        <p>팀 리더 / CVE DB 연동 / Exploit 후보 분석 / PoC 검증</p>
         </div>
 
-        <p class="project-desc">
-          Nmap 기반 서비스 식별, 버전 Fingerprinting, CVE 자동 매핑,
-          Exploit 후보 추천까지 이어지는 취약점 분석 자동화 시스템입니다.
-        </p>
-
-        <div class="project-detail">
-          <div>
-            <h4>역할</h4>
-            <p>팀 리더 / CVE DB 연동 / Exploit 테스트 / 취약점 후보 분석</p>
-          </div>
-          <div>
-            <h4>핵심 기여</h4>
-            <ul>
-              <li>Nmap 기반 서비스 식별 및 버전 Fingerprinting 흐름 설계</li>
-              <li>AI 기반 버전 문자열 보정으로 CVE 검색 쿼리 품질 개선</li>
-              <li>Local CVE API·Exploit-DB 기반 취약점 후보 분석 및 PoC 검증 수행</li>
-            </ul>
-          </div>
-          <div>
-            <h4>기술</h4>
-            <p>Python, Nmap, CVE-Search, Exploit-DB, Streamlit</p>
-          </div>
+        <div>
+        <h4>개인 기여</h4>
+        <ul>
+            <li>AI 기반 서비스·버전 보정 로직으로 CVE 매핑 정확도 약 40% 향상</li>
+            <li>서비스 기준 자동 CVE 추천 및 캐시 활용으로 분석 시간 1분→20초 단축</li>
+            <li>Exploit-DB 기반 후보 자동 정렬 및 PoC 검증 흐름 구현</li>
+        </ul>
         </div>
 
-        <div class="project-links">
-          <a href="https://github.com/Jamongseed/SemiProject-PortScanASM" target="_blank">GitHub</a>
+        <div>
+        <h4>프로젝트 기술</h4>
+        <div class="project-tech-badges">
+            <span>Python</span>
+            <span>Nmap</span>
+            <span>CVE-Search</span>
+            <span>Exploit-DB</span>
+            <span>Streamlit</span>
+            <span>AI Query Refinement</span>
         </div>
-      </article>
+        </div>
+    </div>
 
-      <article class="project-card">
-        <div class="project-header">
-          <div>
-            <p class="project-label">Team Project 03</p>
-            <h3>Darkweb Threat Intelligence Automation System</h3>
-            <p class="project-subtitle">다크웹 기반 위협 인텔리전스 자동화 시스템</p>
-          </div>
-          <span class="period">2025.10</span>
+    <div class="project-links">
+        <a class="project-button" href="https://github.com/Jamongseed/SemiProject-PortScanASM" target="_blank">GitHub 보기</a>
+    </div>
+    </article>
+
+    <article class="project-card">
+    <div class="project-header">
+        <div>
+        <p class="project-label">Team Project 03</p>
+        <h3>Darkweb Threat Intelligence Automation System</h3>
+        <p class="project-subtitle">다크웹 기반 위협 인텔리전스 자동화 시스템</p>
+
+        <div class="project-tags">
+            <span>Threat Intelligence</span>
+            <span>Darkweb OSINT</span>
+            <span>Tor Crawling</span>
+            <span>Alerting</span>
+            <span>Dashboard</span>
+        </div>
+        </div>
+        <span class="period">2025.10</span>
+    </div>
+
+    <p class="project-desc">
+        다크웹·해킹포럼·랜섬웨어 페이지의 유출 정보를 자동 수집하고,
+        정규화·분석·알림까지 이어지도록 구성한 위협 인텔리전스 자동화 시스템입니다.
+    </p>
+
+    <div class="project-gallery">
+        <button class="project-image" type="button" onclick="openLightbox('assets/projects/darkweb-alert.png', '다크웹 유출 정보 탐지 및 Discord 알림 화면')">
+        <img src="assets/projects/darkweb-alert.png" alt="다크웹 유출 정보 탐지 및 Discord 알림 화면" />
+        <span>유출 정보 탐지 및 Discord 알림 화면 · 클릭해서 확대</span>
+        </button>
+
+        <button class="project-image" type="button" onclick="openLightbox('assets/projects/darkweb-dashboard.png', '다크웹 위협 인텔리전스 분석 대시보드')">
+        <img src="assets/projects/darkweb-dashboard.png" alt="다크웹 위협 인텔리전스 분석 대시보드" />
+        <span>위협 인텔리전스 분석 대시보드 · 클릭해서 확대</span>
+        </button>
+    </div>
+
+    <div class="metric-grid">
+    <div class="metric-card">
+        <strong>5+</strong>
+        <span>다크웹 소스 자동화</span>
+    </div>
+    <div class="metric-card">
+        <strong>30초 내</strong>
+        <span>Slack/Discord 알림</span>
+    </div>
+    <div class="metric-card">
+        <strong>정규화</strong>
+        <span>유출 정보 구조화</span>
+    </div>
+    <div class="metric-card">
+        <strong>IAM</strong>
+        <span>키 로테이션 자동화</span>
+    </div>
+    </div>
+
+    <p class="metric-note">
+    ※ 프로젝트 테스트 환경 기준 측정 결과
+    </p>
+
+    <div class="project-detail">
+        <div>
+        <h4>역할</h4>
+        <p>팀 리더 / 알림 연동 / 대시보드 구축 / AWS 키 로테이션 자동화</p>
         </div>
 
-        <p class="project-desc">
-          다크웹·해킹포럼·랜섬웨어 페이지의 유출 정보를 자동 수집하고,
-          정규화·분석·알림까지 이어지도록 구성한 위협 인텔리전스 자동화 시스템입니다.
-        </p>
-
-        <div class="project-detail">
-          <div>
-            <h4>역할</h4>
-            <p>팀 리더 / 알림 연동 / 대시보드 구축 / 대응 시나리오 설계</p>
-          </div>
-          <div>
-            <h4>핵심 기여</h4>
-            <ul>
-              <li>Tor 기반 크롤러와 파서·정규화 엔진을 활용한 위협 정보 수집 흐름 설계</li>
-              <li>Discord Webhook 기반 신규 유출 정보 알림 및 Streamlit 대시보드 구축</li>
-              <li>AWS 관련 유출 사고 대응 시나리오 설계 및 알림 연동 흐름 구현</li>
-            </ul>
-          </div>
-          <div>
-            <h4>기술</h4>
-            <p>Python, Tor, Selenium, Streamlit, Discord Webhook, AWS</p>
-          </div>
+        <div>
+        <h4>개인 기여</h4>
+        <ul>
+            <li>Tor 기반 크롤러와 파서·정규화 엔진을 활용한 위협 정보 수집 흐름 설계</li>
+            <li>신규 유출 정보 탐지 시 Slack/Discord Webhook 알림 및 Streamlit 대시보드 연동 구현</li>
+            <li>AWS IAM 액세스키 자동 로테이션·검증·은퇴 모듈 구현</li>
+            <li>STS 검증, CloudTrail 감사, 기존 키 비활성화/삭제까지 이어지는 유출 사고 대응 흐름 구성</li>
+        </ul>
         </div>
 
-        <div class="project-links">
-          <a href="https://github.com/Jamongseed/SemiProject-DarkwebOSINT" target="_blank">GitHub</a>
+        <div>
+        <h4>프로젝트 기술</h4>
+        <div class="project-tech-badges">
+            <span>Python</span>
+            <span>Tor</span>
+            <span>Selenium</span>
+            <span>Streamlit</span>
+            <span>Slack/Discord Webhook</span>
+            <span>AWS IAM</span>
+            <span>CloudTrail</span>
+            <span>boto3</span>
         </div>
-      </article>
+        </div>
+    </div>
+
+    <div class="project-links">
+        <a class="project-button" href="https://github.com/Jamongseed/SemiProject-DarkwebOSINT" target="_blank">GitHub 보기</a>
+    </div>
+    </article>
 
       <article class="project-card">
         <div class="project-header">
@@ -456,7 +563,7 @@
     </div>
 
   <footer class="footer">
-    <p>© 2026 Kim Taejung. Security Engineer Portfolio.</p>
+    <p>© 2026 Kim TaeJoong. Security Engineer Portfolio.</p>
   </footer>
     <script>
     function copyEmail() {
