@@ -303,6 +303,10 @@
 
     <p class="project-desc">
         Nmap 기반 포트·서비스 식별 결과를 바탕으로 서비스 버전 정보를 정규화하고,
+        
+    </p>
+
+    <p class="project-desc sub">
         CVE 후보 매핑과 Exploit 후보 조회까지 이어지는 취약점 분석 자동화 시스템입니다.
     </p>
 
@@ -487,8 +491,11 @@
     </div>
 
     <p class="project-desc">
-        MobSF, Frida, ADB를 활용해 모바일 악성 APK의 정적·동적 분석 과정을 자동화하고,
-        탐지 우회·DEX 복호화·재패키징·로그 수집까지 이어지는 분석 파이프라인을 구성한 시스템입니다.
+    MobSF, Frida, ADB를 활용해 모바일 악성 APK의 정적·동적 분석 과정을 자동화한 시스템입니다.
+    </p>
+
+    <p class="project-desc sub">
+    탐지 우회, DEX 복호화, 재패키징, 로그 수집까지 이어지는 분석 파이프라인을 구성했습니다.
     </p>
 
     <div class="project-gallery">
@@ -573,9 +580,24 @@
         </div>
 
         <p class="ctf-desc">
-        DreamHack 워게임을 통해 Pwnable, Web, Reversing, Crypto 분야의 취약점 분석과
-        exploit 재현 경험을 쌓았습니다.
+        DreamHack 워게임을 통해 Pwnable, Web, Reversing, Crypto 분야의 취약점 분석과 exploit 재현 경험을 쌓았습니다.
         </p>
+
+        <p class="ctf-desc sub">
+        각 풀이 과정은 취약점 원인, 메모리 구조, exploit 흐름, PoC 코드를 중심으로 Notion write-up 아카이브에 정리했습니다.
+        </p>
+
+        <div class="project-gallery">
+        <button class="project-image" type="button" onclick="openLightbox('assets/projects/dreamhack-profile.png', 'DreamHack Wargame 프로필 및 풀이 분포')">
+            <img src="assets/projects/dreamhack-profile.png" alt="DreamHack Wargame 프로필 및 풀이 분포" />
+            <span>DreamHack 랭킹, First Blood, 분야별 풀이 분포 · 클릭해서 확대</span>
+        </button>
+
+        <button class="project-image" type="button" onclick="openLightbox('assets/projects/ctf-exploit-summary.png', 'CTF exploit 시나리오 분석 예시')">
+            <img src="assets/projects/ctf-exploit-summary.png" alt="CTF exploit 시나리오 분석 예시" />
+            <span>Pwnable exploit 시나리오 분석 및 공격 흐름 정리 예시 · 클릭해서 확대</span>
+        </button>
+        </div>
 
         <div class="metric-grid">
         <div class="metric-card">
@@ -587,12 +609,12 @@
             <span>보안 워게임 해결</span>
         </div>
         <div class="metric-card">
-            <strong>4분야</strong>
-            <span>Pwnable·Web·Rev·Crypto</span>
+            <strong>8회</strong>
+            <span>First Blood 달성</span>
         </div>
         <div class="metric-card">
-            <strong>Exploit</strong>
-            <span>PoC 작성 경험</span>
+            <strong>4분야</strong>
+            <span>Pwnable·Web·Rev·Crypto</span>
         </div>
         </div>
 
@@ -601,9 +623,9 @@
             <h4>주요 경험</h4>
             <ul>
             <li>Pwnable 문제를 통해 메모리 구조, ROP, canary leak, ret2libc 등 exploit 흐름 분석</li>
-            <li>Web 문제를 통해 인증 우회, XSS, SSRF, 세션·쿠키 처리 취약점 분석</li>
+            <li>Web 문제를 통해 XSS, SSRF, 세션·쿠키 처리, 인증 우회 등 취약점 분석</li>
             <li>Reversing 문제를 통해 바이너리 분석, 난독화 해제, 동적 디버깅 경험 축적</li>
-            <li>CVE 기반 취약점 분석 및 PoC 검증 경험 보유</li>
+            <li>DreamHack 워게임에서 First Blood 8회 달성</li>
             </ul>
         </div>
         </div>
@@ -617,6 +639,12 @@
         <span>GDB</span>
         <span>IDA</span>
         <span>Burp Suite</span>
+        </div>
+
+        <div class="project-links">
+        <a class="project-button" href="https://ahead-krypton-19d.notion.site/DreamHack-CTF-Exploit-Research-Archive-2c044e52b3b380378493cf1f728bce6c" target="_blank">
+            Write-up Archive 보기
+        </a>
         </div>
     </div>
     </section>

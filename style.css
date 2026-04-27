@@ -599,6 +599,11 @@ button.btn {
   color: #374151;
 }
 
+.project-desc.sub {
+  margin-top: -18px;
+  color: #374151;
+}
+
 .project-detail {
   display: grid;
   gap: 18px;
@@ -669,6 +674,11 @@ button.btn {
 
 .ctf-desc {
   margin: 0 0 20px;
+  color: #374151;
+}
+
+.ctf-desc.sub {
+  margin-top: -5px;
   color: #374151;
 }
 
