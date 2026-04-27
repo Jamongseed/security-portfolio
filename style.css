@@ -711,6 +711,85 @@ button.btn {
   font-size: 14px;
 }
 
+.project-detail-hero {
+  padding: 72px 0 36px;
+}
+
+.project-detail-hero h1 {
+  margin: 0;
+  font-size: 40px;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}
+
+.project-detail-hero h2 {
+  margin: 12px 0 0;
+  font-size: 24px;
+  color: #374151;
+  font-weight: 600;
+}
+
+.detail-tags {
+  margin-top: 24px;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.detail-list {
+  margin: 12px 0 0;
+  padding-left: 20px;
+  color: #374151;
+}
+
+.detail-list li {
+  margin-bottom: 6px;
+}
+
+.trouble-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.05);
+  margin-bottom: 18px;
+}
+
+.trouble-card h3 {
+  margin: 0 0 18px;
+  font-size: 21px;
+  letter-spacing: -0.03em;
+}
+
+.trouble-block {
+  padding: 16px 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.trouble-block h4 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  color: #2563eb;
+}
+
+.trouble-block p {
+  margin: 0;
+  color: #374151;
+}
+
+.detail-note {
+  margin-top: 14px;
+}
+
+.project-button.secondary {
+  background: #ffffff;
+  color: #111827 !important;
+  border: 1px solid #d1d5db;
+}
+
 @media (max-width: 768px) {
   .nav {
     align-items: flex-start;
@@ -800,5 +879,21 @@ button.btn {
 
   .ctf-header {
     flex-direction: column;
+  }
+
+  .project-detail-hero {
+    padding: 60px 0 36px;
+  }
+
+  .project-detail-hero h1 {
+    font-size: 34px;
+  }
+
+  .project-detail-hero h2 {
+    font-size: 20px;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
   }
 }

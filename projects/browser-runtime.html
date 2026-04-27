@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browser Runtime Security System | 김태중 Portfolio</title>
+  <meta name="description" content="Browser Runtime Security System 프로젝트 상세 페이지" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+    <header class="site-header">
+    <nav class="nav">
+        <a class="logo" href="../index.html#home">Jamong</a>
+        <div class="nav-links">
+        <a href="../index.html#projects">프로젝트 목록</a>
+        <a href="#overview">개요</a>
+        <a href="#screens">화면</a>
+        <a href="#implementation">구현</a>
+        <a href="#troubleshooting">트러블슈팅</a>
+        <a href="#tech-stack">기술</a>
+        </div>
+    </nav>
+    </header>
+  </header>
+
+  <main>
+    <section class="project-detail-hero">
+      <p class="eyebrow">Project Detail</p>
+      <h1>Browser Runtime Security System</h1>
+      <h2>브라우저 런타임 위협 행위 탐지 시스템</h2>
+
+      <p class="hero-desc">
+        Chrome Extension 기반으로 브라우저 내부에서 실행 직전에 발생하는 DOM·링크·폼·네트워크 요청 변조를 탐지하고,
+        재현 가능한 증거를 수집하는 보안 시스템입니다.
+      </p>
+
+      <div class="project-tags detail-tags">
+        <span>Chrome Extension</span>
+        <span>JavaScript</span>
+        <span>Threat Detection</span>
+        <span>PoC</span>
+        <span>Ruleset</span>
+      </div>
+
+      <div class="hero-actions">
+        <a class="btn primary" href="../index.html#projects">프로젝트 목록으로</a>
+        <a class="btn" href="https://github.com/Jamongseed/browser-runtime-security" target="_blank">GitHub 보기</a>
+      </div>
+    </section>
+
+    <section id="overview" class="section">
+      <div class="section-title">
+        <p>Overview</p>
+        <h2>프로젝트 개요</h2>
+      </div>
+
+      <div class="detail-grid">
+        <div class="card">
+          <h3>문제 정의</h3>
+          <p>
+            서버 로그나 WAF는 요청이 서버에 도달한 이후의 흔적을 중심으로 확인하지만,
+            브라우저 내부에서 실행 직전에 발생하는 DOM 변조, 링크 교체, 폼 변조, 스크립트 주입은
+            사용자의 실제 화면과 상호작용 흐름에서 먼저 드러납니다.
+          </p>
+          <p>
+            이 프로젝트는 브라우저 런타임에서 발생하는 위협 행위를 탐지 가능한 이벤트로 수집하고,
+            분석 가능한 증거 형태로 구조화하는 것을 목표로 했습니다.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>내 역할</h3>
+          <p>팀 리더 / 공격 분석 / 탐지 룰 설계 / PoC 구현</p>
+          <ul class="detail-list">
+            <li>DOM·네트워크·프로토타입 변조 관련 공격 분석 및 탐지 시나리오 설계</li>
+            <li>PoC 10개 중 4개 구현 및 악성 PoC 테스트 허브 구축</li>
+            <li>탐지 룰 설계 및 PoC 기반 탐지 검증 수행</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="screens" class="section">
+      <div class="section-title">
+        <p>Result Screens</p>
+        <h2>실행 화면</h2>
+      </div>
+
+      <div class="project-gallery">
+        <button class="project-image" type="button" onclick="openLightbox('../assets/projects/browser-detection.png', '확장프로그램 탐지 팝업 및 PoC Hub 화면')">
+          <img src="../assets/projects/browser-detection.png" alt="확장프로그램 탐지 팝업 및 PoC Hub 화면" />
+          <span>확장프로그램 탐지 팝업 및 PoC Hub 화면 · 클릭해서 확대</span>
+        </button>
+
+        <button class="project-image" type="button" onclick="openLightbox('../assets/projects/browser-dashboard.png', '이벤트 타임라인 및 분석 대시보드 화면')">
+          <img src="../assets/projects/browser-dashboard.png" alt="이벤트 타임라인 및 분석 대시보드 화면" />
+          <span>이벤트 타임라인 및 분석 대시보드 화면 · 클릭해서 확대</span>
+        </button>
+      </div>
+
+      <div class="metric-grid">
+        <div class="metric-card">
+          <strong>4개</strong>
+          <span>PoC 구현</span>
+        </div>
+        <div class="metric-card">
+          <strong>24종</strong>
+          <span>탐지 이벤트</span>
+        </div>
+        <div class="metric-card">
+          <strong>52개</strong>
+          <span>기본 탐지 룰</span>
+        </div>
+        <div class="metric-card">
+          <strong>44개</strong>
+          <span>스코어링 룰</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="implementation" class="section">
+      <div class="section-title">
+        <p>Core Implementation</p>
+        <h2>핵심 구현</h2>
+      </div>
+
+      <div class="detail-grid">
+        <div class="card">
+          <h3>런타임 이벤트 수집</h3>
+          <p>
+            브라우저 페이지에서 발생하는 DOM 변경, 링크 목적지 변경, 폼 action 변경,
+            스크립트 삽입 등 사용자 화면 기준의 변조 흔적을 탐지 이벤트로 수집했습니다.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>PoC 기반 탐지 검증</h3>
+          <p>
+            공격 시나리오를 재현할 수 있는 PoC Hub를 구성하고, 각 PoC가 탐지 룰에 의해
+            실제로 이벤트로 기록되는지 확인하는 방식으로 탐지 로직을 검증했습니다.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>룰셋 및 스코어링</h3>
+          <p>
+            탐지 이벤트를 단순 로그로 남기는 데 그치지 않고, 이벤트 유형과 위험도를 기준으로
+            기본 탐지 룰과 스코어링 룰을 설계해 우선순위 판단이 가능하도록 구성했습니다.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>증거 중심 분석 흐름</h3>
+          <p>
+            탐지 결과가 단순 경고로 끝나지 않도록, before/after 상태와 발생 위치, 이벤트 유형 등
+            분석자가 재현 가능한 근거를 확인할 수 있는 구조를 지향했습니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="troubleshooting" class="section">
+      <div class="section-title">
+        <p>Troubleshooting</p>
+        <h2>트러블슈팅</h2>
+      </div>
+
+      <div class="trouble-card">
+        <h3>동일 도메인 배포 환경에서 PoC 재현이 깨지는 문제</h3>
+
+        <div class="trouble-block">
+          <h4>문제</h4>
+          <p>
+            로컬에서는 공격자 페이지와 피해자 페이지를 분리해 재현되던 cross-site 시나리오가
+            배포 환경에서는 정상적으로 재현되지 않는 문제가 있었습니다.
+          </p>
+        </div>
+
+        <div class="trouble-block">
+          <h4>원인</h4>
+          <p>
+            PoC를 단일 허브 도메인 안의 경로로만 나누면 브라우저 기준으로 Origin이 동일해져,
+            iframe, clickjacking, third-party script 등 일부 시나리오가 로컬과 다르게 동작했습니다.
+          </p>
+        </div>
+
+        <div class="trouble-block">
+          <h4>해결</h4>
+          <p>
+            PoC Hub를 단순한 페이지 모음이 아니라 공격자/피해자 Origin을 분리하는 구조로 재설계했습니다.
+            이를 통해 브라우저 보안 정책이 실제 cross-origin 환경처럼 적용되도록 구성했습니다.
+          </p>
+        </div>
+
+        <div class="trouble-block">
+          <h4>결과</h4>
+          <p>
+            배포 환경에서도 iframe, clickjacking, third-party script 기반 시나리오를 안정적으로 재현할 수 있었고,
+            탐지 룰 검증 과정에서 로컬과 배포 환경의 차이를 줄일 수 있었습니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="trouble-card">
+        <h3>탐지 이벤트가 많아질수록 분석 우선순위가 흐려지는 문제</h3>
+
+        <div class="trouble-block">
+          <h4>문제</h4>
+          <p>
+            DOM 변경, 링크 변조, 폼 변조 등 다양한 이벤트를 수집하다 보니 이벤트 수가 늘어날수록
+            어떤 항목을 먼저 확인해야 하는지 판단하기 어려웠습니다.
+          </p>
+        </div>
+
+        <div class="trouble-block">
+            <h4>원인</h4>
+            <p>
+                탐지 이벤트가 이벤트 유형별로만 누적되고, 위험도나 우선순위 기준이 분리되어 있지 않아
+                분석자가 이벤트 목록을 수동으로 판단해야 했습니다.
+            </p>
+        </div>
+
+        <div class="trouble-block">
+          <h4>해결</h4>
+          <p>
+            이벤트 유형별 위험도를 분리하고, 탐지 룰과 스코어링 룰을 나눠 설계했습니다.
+            이를 통해 단순 이벤트 목록이 아니라 위험도 기반으로 분석 우선순위를 확인할 수 있도록 했습니다.
+          </p>
+        </div>
+
+        <div class="trouble-block">
+          <h4>결과</h4>
+          <p>
+            탐지 이벤트를 단순 수집하는 수준에서 벗어나, 어떤 위협이 더 먼저 확인되어야 하는지
+            판단할 수 있는 분석 흐름을 만들 수 있었습니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tech-stack" class="section">
+    <div class="section-title">
+        <p>Tech Stack</p>
+        <h2>사용 기술</h2>
+    </div>
+
+    <div class="detail-grid">
+        <div class="card">
+        <h3>주요 담당 기술</h3>
+        <div class="project-tech-badges">
+            <span>Chrome Extension</span>
+            <span>JavaScript</span>
+            <span>DOM Monitoring</span>
+            <span>PoC Hub</span>
+            <span>Detection Ruleset</span>
+        </div>
+        </div>
+
+        <div class="card">
+        <h3>프로젝트 전체 스택</h3>
+        <div class="project-tech-badges">
+            <span>AWS</span>
+            <span>DynamoDB</span>
+            <span>S3</span>
+            <span>API Gateway</span>
+        </div>
+        <p class="metric-note detail-note">
+            ※ 백엔드·인프라 구성은 팀 프로젝트 전체 기술 스택 기준입니다.
+        </p>
+        </div>
+    </div>
+    </section>
+  </main>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" type="button" onclick="event.stopPropagation(); closeLightbox()">×</button>
+
+    <figure class="lightbox-content" onclick="event.stopPropagation()">
+      <img id="lightbox-img" src="" alt="" />
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+  </div>
+
+  <footer class="footer">
+    <p>© 2026 Kim TaeJoong. Security Engineer Portfolio.</p>
+  </footer>
+
+  <script>
+    function openLightbox(src, caption) {
+      const lightbox = document.getElementById("lightbox");
+      const img = document.getElementById("lightbox-img");
+      const captionEl = document.getElementById("lightbox-caption");
+
+      img.src = src;
+      img.alt = caption;
+      captionEl.textContent = caption;
+      lightbox.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById("lightbox");
+      const img = document.getElementById("lightbox-img");
+
+      lightbox.classList.remove("active");
+      img.src = "";
+      document.body.style.overflow = "";
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+</html>
