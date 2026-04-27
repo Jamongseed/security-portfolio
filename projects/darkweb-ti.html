@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Darkweb Threat Intelligence Automation System | 김태중 Portfolio</title>
+  <meta name="description" content="Darkweb Threat Intelligence Automation System 프로젝트 상세 페이지" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="logo" href="../index.html#home">Jamong</a>
+      <div class="nav-links">
+        <a href="../index.html#projects">프로젝트 목록</a>
+        <a href="#overview">개요</a>
+        <a href="#screens">화면</a>
+        <a href="#implementation">구현</a>
+        <a href="#troubleshooting">트러블슈팅</a>
+        <a href="#tech-stack">기술</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project-detail-hero">
+      <p class="eyebrow">Project Detail</p>
+      <h1>Darkweb Threat Intelligence Automation System</h1>
+      <h2>다크웹 기반 위협 인텔리전스 자동화 시스템</h2>
+
+      <p class="hero-desc">
+        다크웹·해킹포럼·랜섬웨어 페이지의 유출 정보를 자동 수집하고 정규화·분석하는 위협 인텔리전스 시스템입니다.
+      </p>
+
+      <p class="hero-desc sub">
+        신규 유출 정보 발생 시 Slack/Discord 알림과 AWS IAM 키 로테이션 대응 자동화까지 이어지는 흐름을 구성했습니다.
+      </p>
+      <div class="project-tags detail-tags">
+        <span>Threat Intelligence</span>
+        <span>Darkweb OSINT</span>
+        <span>Tor Crawling</span>
+        <span>Alerting</span>
+        <span>Dashboard</span>
+      </div>
+
+      <div class="hero-actions">
+        <a class="btn primary" href="../index.html#projects">프로젝트 목록으로</a>
+        <a class="btn" href="https://github.com/Jamongseed/SemiProject-DarkwebOSINT" target="_blank">GitHub 보기</a>
+      </div>
+    </section>
+
+    <section id="overview" class="section">
+      <div class="section-title">
+        <p>Overview</p>
+        <h2>프로젝트 개요</h2>
+      </div>
+
+      <div class="detail-grid">
+        <div class="card">
+          <h3>문제 정의</h3>
+          <p>
+            다크웹·해킹포럼·랜섬웨어 페이지에는 유출 계정, 키워드, 기업명, 클라우드 자격증명 등
+            보안팀이 빠르게 확인해야 하는 정보가 비정형 형태로 게시됩니다.
+          </p>
+          <p>
+            하지만 수작업으로 여러 소스를 반복 확인하면 수집 누락이 발생하기 쉽고,
+            신규 유출 정보가 발생해도 대응까지 이어지는 시간이 길어지는 문제가 있었습니다.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>내 역할</h3>
+          <p>팀 리더 / 알림 연동 / 대시보드 구축 / AWS 키 로테이션 자동화</p>
+          <ul class="detail-list">
+            <li>Tor 기반 크롤러와 파서·정규화 엔진을 활용한 위협 정보 수집 흐름 설계</li>
+            <li>신규 유출 정보 탐지 시 Slack/Discord Webhook 알림 및 Streamlit 대시보드 연동 구현</li>
+            <li>AWS IAM 액세스키 자동 로테이션·검증·은퇴 모듈 구현</li>
+            <li>STS 검증, CloudTrail 감사, 기존 키 비활성화/삭제까지 이어지는 유출 사고 대응 흐름 구성</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="screens" class="section">
+      <div class="section-title">
+        <p>Result Screens</p>
+        <h2>실행 화면</h2>
+      </div>
+
+      <div class="project-gallery">
+        <button class="project-image" type="button" onclick="openLightbox('../assets/projects/darkweb-alert.png', '유출 정보 탐지 및 Discord 알림 화면')">
+          <img src="../assets/projects/darkweb-alert.png" alt="유출 정보 탐지 및 Discord 알림 화면" />
+          <span>유출 정보 탐지 및 Discord 알림 화면 · 클릭해서 확대</span>
+        </button>
+
+        <button class="project-image" type="button" onclick="openLightbox('../assets/projects/darkweb-dashboard.png', '위협 인텔리전스 분석 대시보드 화면')">
+          <img src="../assets/projects/darkweb-dashboard.png" alt="위협 인텔리전스 분석 대시보드 화면" />
+          <span>위협 인텔리전스 분석 대시보드 화면 · 클릭해서 확대</span>
+        </button>
+      </div>
+
+      <div class="metric-grid">
+        <div class="metric-card">
+          <strong>5+</strong>
+          <span>다크웹 소스 자동화</span>
+        </div>
+        <div class="metric-card">
+          <strong>30초 내</strong>
+          <span>Slack/Discord 알림</span>
+        </div>
+        <div class="metric-card">
+          <strong>정규화</strong>
+          <span>유출 정보 구조화</span>
+        </div>
+        <div class="metric-card">
+          <strong>IAM</strong>
+          <span>키 로테이션 자동화</span>
+        </div>
+      </div>
+
+      <p class="metric-note">
+        ※ 프로젝트 테스트 환경 기준 측정 결과 · 독립 수집 소스 기준
+      </p>
+    </section>
+
+    <section id="implementation" class="section">
+      <div class="section-title">
+        <p>Core Implementation</p>
+        <h2>핵심 구현</h2>
+      </div>
+
+      <div class="detail-grid">
+        <div class="card">
+          <h3>Tor 기반 수집 흐름</h3>
+          <p>
+            다크웹 소스에 접근하기 위해 Tor 기반 크롤링 흐름을 구성하고,
+            수집 대상별 HTML 구조에 맞춰 파싱 로직을 분리했습니다.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>파서·정규화 엔진</h3>
+          <p>
+            소스마다 다른 유출 정보 형식을 날짜, 소스, 키워드, 기업명, 국가 코드 등
+            분석 가능한 필드로 정규화했습니다.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Webhook 알림 연동</h3>
+          <p>
+            신규 유출 정보가 탐지되면 Slack/Discord Webhook을 통해 보안팀이 바로 확인할 수 있도록
+            알림 메시지와 요약 정보를 전송하는 흐름을 구성했습니다.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>AWS IAM 키 대응 자동화</h3>
+          <p>
+            AWS 액세스키 유출 시나리오를 가정해 신규 키 생성, STS 검증, CloudTrail 감사,
+            기존 키 비활성화/삭제까지 이어지는 자동 대응 모듈을 구현했습니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="troubleshooting" class="section">
+      <div class="section-title">
+        <p>Troubleshooting</p>
+        <h2>트러블슈팅</h2>
+      </div>
+
+      <div class="trouble-card">
+        <h3>다크웹 소스별 HTML 구조가 달라 파싱이 불안정한 문제</h3>
+
+        <div class="trouble-block">
+          <h4>문제</h4>
+          <p>
+            각 다크웹·해킹포럼·랜섬웨어 페이지의 HTML 구조와 게시글 형식이 달라,
+            하나의 파싱 규칙만으로는 유출 정보를 안정적으로 수집하기 어려웠습니다.
+          </p>
+        </div>
+
+        <div class="trouble-block">
+          <h4>원인</h4>
+          <p>
+            소스마다 제목, 날짜, 본문, 피해 기업명, 국가 정보가 표시되는 위치와 태그 구조가 달랐고,
+            일부 페이지는 빈 페이지나 보호 페이지가 반환되는 경우도 있었습니다.
+          </p>
+        </div>
+
+        <div class="trouble-block">
+          <h4>해결</h4>
+          <p>
+            도메인별 파서 규칙을 분리하고, 수집 실패 페이지에 대한 재시도 흐름과
+            정규화 단계를 추가해 소스별 차이를 흡수하도록 구성했습니다.
+          </p>
+        </div>
+
+        <div class="trouble-block">
+          <h4>결과</h4>
+          <p>
+            독립 수집 소스 기준 5개 이상의 다크웹 소스에서 유출 정보 자동 수집 흐름을 구성할 수 있었습니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="trouble-card">
+        <h3>신규 유출 정보 탐지 후 대응까지 시간이 길어지는 문제</h3>
+
+        <div class="trouble-block">
+          <h4>문제</h4>
+          <p>
+            수집된 유출 정보를 사람이 직접 확인하고 공유하는 방식에서는 신규 유출 정보가 발견되어도
+            보안팀이 확인하기까지 시간이 지연될 수 있었습니다.
+          </p>
+        </div>
+
+        <div class="trouble-block">
+          <h4>원인</h4>
+          <p>
+            수집, 정규화, 중요도 판단, 알림 전송 과정이 분리되어 있어
+            신규 정보 발생 시 즉시 알림으로 이어지는 자동화 흐름이 부족했기 때문입니다.
+          </p>
+        </div>
+
+        <div class="trouble-block">
+          <h4>해결</h4>
+          <p>
+            신규 유출 정보 탐지 시 Slack/Discord Webhook으로 요약 알림을 전송하고,
+            대시보드에서 상세 정보를 확인할 수 있도록 연동했습니다.
+          </p>
+        </div>
+
+        <div class="trouble-block">
+          <h4>결과</h4>
+          <p>
+            프로젝트 테스트 환경에서 신규 유출 정보 발생 후 30초 내 Slack/Discord 알림을 확인할 수 있었습니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="trouble-card">
+        <h3>AWS 액세스키 유출 상황에서 수동 대응이 필요한 문제</h3>
+
+        <div class="trouble-block">
+          <h4>문제</h4>
+          <p>
+            액세스키 유출이 의심되는 상황에서는 새 키 발급, 기존 키 사용 이력 감사, 비활성화 또는 삭제까지
+            여러 단계가 빠르게 수행되어야 했습니다.
+          </p>
+        </div>
+
+        <div class="trouble-block">
+          <h4>원인</h4>
+          <p>
+            IAM 키 교체와 CloudTrail 기반 사용 이력 확인을 수동으로 처리하면
+            대응 시간이 길어지고, 기존 키가 계속 활성된 상태로 남을 위험이 있었습니다.
+          </p>
+        </div>
+
+        <div class="trouble-block">
+          <h4>해결</h4>
+          <p>
+            boto3 기반으로 신규 액세스키를 생성하고 STS로 검증한 뒤,
+            CloudTrail에서 기존 키 사용 이력을 감사하고 기존 키를 비활성화/삭제하는 자동화 모듈을 구현했습니다.
+          </p>
+        </div>
+
+        <div class="trouble-block">
+          <h4>결과</h4>
+          <p>
+            유출 사고 대응 시나리오에서 키 로테이션, 검증, 감사, 은퇴까지 이어지는 자동 조치 흐름을 구성할 수 있었습니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tech-stack" class="section">
+      <div class="section-title">
+        <p>Tech Stack</p>
+        <h2>사용 기술</h2>
+      </div>
+
+      <div class="detail-grid">
+        <div class="card">
+          <h3>주요 담당 기술</h3>
+          <div class="project-tech-badges">
+            <span>Python</span>
+            <span>Tor</span>
+            <span>Selenium</span>
+            <span>Streamlit</span>
+            <span>Slack/Discord Webhook</span>
+            <span>AWS IAM</span>
+            <span>CloudTrail</span>
+            <span>boto3</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>프로젝트 전체 스택</h3>
+          <div class="project-tech-badges">
+            <span>Darkweb OSINT</span>
+            <span>Parser</span>
+            <span>Normalization</span>
+            <span>Dashboard</span>
+            <span>Threat Intelligence</span>
+          </div>
+          <p class="metric-note detail-note">
+            ※ 대시보드 및 전체 수집·분석 흐름은 팀 프로젝트 전체 기술 스택 기준입니다.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" type="button" onclick="event.stopPropagation(); closeLightbox()">×</button>
+
+    <figure class="lightbox-content" onclick="event.stopPropagation()">
+      <img id="lightbox-img" src="" alt="" />
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+  </div>
+
+  <footer class="footer">
+    <p>© 2026 Kim Taejung. Security Engineer Portfolio.</p>
+  </footer>
+
+  <script>
+    function openLightbox(src, caption) {
+      const lightbox = document.getElementById("lightbox");
+      const img = document.getElementById("lightbox-img");
+      const captionEl = document.getElementById("lightbox-caption");
+
+      img.src = src;
+      img.alt = caption;
+      captionEl.textContent = caption;
+      lightbox.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById("lightbox");
+      const img = document.getElementById("lightbox-img");
+
+      lightbox.classList.remove("active");
+      img.src = "";
+      document.body.style.overflow = "";
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+</html>
